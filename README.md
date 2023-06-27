@@ -145,4 +145,4 @@ public class Main() extends JavaPlugin {
 ## 📝 License
 
 Copyright © 2023 [Tohjuler](https://github.com/Tohjuler).<br />
-This project is [MIT](https://github.com/Tohjuler/cmd-manager/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/Tohjuler/cmd-manager/blob/main/LICENSE) licensed.
