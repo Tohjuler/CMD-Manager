@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class AbCmd extends Command implements TabCompleter, CommandExecutor {
+public abstract class AbCmd extends Command implements CommandExecutor {
 
     protected boolean playerOnly = false;
     protected String playerOnlyMsg = "&cOnly players can use this command!";

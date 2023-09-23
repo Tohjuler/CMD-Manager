@@ -47,7 +47,7 @@ public class CmdCall extends AbCmd {
     }
 
     @Override
-    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
+    public List<String> tabComplete(CommandSender commandSender, String s, String[] strings) {
         return null;
     }
 }

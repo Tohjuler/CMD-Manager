@@ -88,14 +88,12 @@ public class Cmd extends AbCmd {
      * Override this method to handle the onTabComplete event
      *
      * @param sender The sender of the command
-     * @param cmd The command that was executed
-     * @param label The label of the command
      * @param args The arguments of the command
      * @return A list of possible tab completions
      *
      */
     @Override
-    public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+    public List<String> tabComplete(CommandSender sender, String alias, String[] args) {
         if (getPermission() != null && !sender.hasPermission(getPermission()))
             return null;
 
@@ -104,7 +102,7 @@ public class Cmd extends AbCmd {
 
         for (AbSubCmd subCmd : subCmds)
             if (subCmd.getName().toLowerCase().startsWith(args[0].toLowerCase()))
-                return subCmd.onTabComplete(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
+                return subCmd.onTabComplete(sender, alias, Arrays.copyOfRange(args, 1, args.length));
 
         return null;
     }

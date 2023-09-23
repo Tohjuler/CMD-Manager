@@ -57,6 +57,6 @@ public abstract class AbSubCmd {
 
     public abstract void onCommand(CommandSender sender, Command cmd, String label, String[] args);
 
-    public abstract List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args);
+    public abstract List<String> onTabComplete(CommandSender sender, String alias, String[] args);
 
 }

@@ -52,7 +52,7 @@ public class SubCmdCall extends AbSubCmd {
     }
 
     @Override
-    public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+    public List<String> onTabComplete(CommandSender sender, String alias, String[] args) {
         return null;
     }
 }
