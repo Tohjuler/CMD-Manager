@@ -1,7 +1,6 @@
 <h1 align="center">Welcome to Cmd-Manager</h1>
 <p align="center">
   <img src="https://img.shields.io/github/license/Tohjuler/cmd-manager?color=blue&style=flat-square"  alt="license"/>
-  <a href="https://repo.tohjuler.dk/#/releases/me/tohjuler/cmdmanager/CmdManager"><img src="https://img.shields.io/github/v/release/Tohjuler/cmd-manager?color=green&style=flat-square" alt="release"></a>
 </p>
 
 > This lib was made for simple creation of commands in minecraft.
@@ -146,4 +145,4 @@ public class Main() extends JavaPlugin {
 ## 📝 License
 
 Copyright © 2023 [Tohjuler](https://github.com/Tohjuler).<br />
-This project is [MIT](https://github.com/Tohjuler/cmd-manager/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/Tohjuler/cmd-manager/blob/main/LICENSE) licensed.
