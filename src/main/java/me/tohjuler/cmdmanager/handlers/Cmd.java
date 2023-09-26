@@ -30,6 +30,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -84,26 +85,24 @@ public class Cmd extends AbCmd {
         return true;
     }
 
-    /**
-     * Override this method to handle the onTabComplete event
-     *
-     * @param sender The sender of the command
-     * @param args The arguments of the command
-     * @return A list of possible tab completions
-     *
-     */
     @Override
     public List<String> tabComplete(CommandSender sender, String alias, String[] args) {
-        if (getPermission() != null && !sender.hasPermission(getPermission()))
-            return null;
+        if (this.getPermission() != null && !sender.hasPermission(this.getPermission())) return new ArrayList<>();
 
-        if (args.length == 0)
-            return Arrays.asList((String[]) subCmds.stream().map(AbSubCmd::getName).toArray());
+        String firstArg = args.length > 0 ? args[0] : "";
 
-        for (AbSubCmd subCmd : subCmds)
-            if (subCmd.getName().toLowerCase().startsWith(args[0].toLowerCase()))
-                return subCmd.onTabComplete(sender, alias, Arrays.copyOfRange(args, 1, args.length));
+        if (firstArg.isEmpty()) return filter(new ArrayList<>(Arrays.asList(subCmds.stream().map(AbSubCmd::getName).toArray(String[]::new))), firstArg);
 
-        return null;
+        List<AbSubCmd> subCmdsList = Arrays.asList(subCmds.stream().filter(s -> s.getName().equalsIgnoreCase(firstArg) || s.getAliases().contains(firstArg)).toArray(AbSubCmd[]::new));
+        if (subCmdsList.isEmpty()) return filter(new ArrayList<>(Arrays.asList(subCmds.stream().map(AbSubCmd::getName).toArray(String[]::new))), firstArg);
+        AbSubCmd subCmd = subCmdsList.get(0);
+        if (subCmd != null && args.length > 1)
+            return subCmd.onTabComplete(sender, alias, Arrays.copyOfRange(args, 1, args.length));
+
+        return filter(new ArrayList<>(Arrays.asList(subCmds.stream().map(AbSubCmd::getName).toArray(String[]::new))), firstArg);
+    }
+
+    private List<String> filter(List<String> l, String query) {
+        return Arrays.asList(l.stream().filter(s -> s.toLowerCase().startsWith(query.toLowerCase())).toArray(String[]::new));
     }
 }
