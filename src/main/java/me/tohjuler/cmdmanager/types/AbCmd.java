@@ -94,4 +94,8 @@ public abstract class AbCmd extends Command implements CommandExecutor {
         onCommand(commandSender, this, command, arg);
         return true;
     }
+
+    protected List<String> filter(List<String> l, String query) {
+        return Arrays.asList(l.stream().filter(s -> s.toLowerCase().startsWith(query.toLowerCase())).toArray(String[]::new));
+    }
 }

@@ -126,6 +126,15 @@ public class CmdManager {
         commandMap.register(pl.getName(), cmd);
     }
 
+    public void unregisterAll() {
+        for (AbCmd cmd : cmds)
+            commandMap.getCommand(cmd.getName()).unregister(commandMap);
+    }
+
+    public void unregister(AbCmd cmd) {
+        commandMap.getCommand(cmd.getName()).unregister(commandMap);
+    }
+
     /**
      * Register a command with a consumer
      * This is a shortcut for creating a simple command

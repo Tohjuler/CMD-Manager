@@ -101,8 +101,4 @@ public class Cmd extends AbCmd {
 
         return filter(new ArrayList<>(Arrays.asList(subCmds.stream().map(AbSubCmd::getName).toArray(String[]::new))), firstArg);
     }
-
-    private List<String> filter(List<String> l, String query) {
-        return Arrays.asList(l.stream().filter(s -> s.toLowerCase().startsWith(query.toLowerCase())).toArray(String[]::new));
-    }
 }
