@@ -30,7 +30,7 @@
 
     <groupId>me.tohjuler.cmdmanager</groupId>
     <artifactId>CmdManager</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
 
     <description>
         This is a library for creating commands in Spigot.
@@ -70,7 +70,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
-            <version>1.16.22</version>
+            <version>1.18.30</version>
         </dependency>
         <dependency>
             <groupId>org.reflections</groupId>

@@ -62,6 +62,15 @@ public class Cooldown {
     }
 
     /**
+     * Removes a cooldown from an object
+     *
+     * @param obj The object to remove the cooldown from
+     */
+    public void removeCooldown(Object obj) {
+        cooldowns.remove(getUuid(obj));
+    }
+
+    /**
      * Checks if an object has a cooldown
      *
      * @param obj The object to check
