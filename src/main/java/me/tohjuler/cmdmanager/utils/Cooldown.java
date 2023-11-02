@@ -101,4 +101,46 @@ public class Cooldown {
         long end = cooldowns.getOrDefault(getUuid(obj), 0L);
         return end == 0 ? 0 : timeUnit.convert(end - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
     }
+
+    /**
+     * Adds time to an object's cooldown
+     *
+     * @param obj The object to add time to
+     * @param time The time to add
+     */
+    public void addTimeToCooldown(Object obj, long time) {
+        addTimeToCooldown(obj, time, TimeUnit.MILLISECONDS);
+    }
+
+    /**
+     * Adds time to an object's cooldown
+     *
+     * @param obj The object to add time to
+     * @param time The time to add
+     * @param timeUnit The time unit of the time
+     */
+    public void addTimeToCooldown(Object obj, long time, TimeUnit timeUnit) {
+        setCooldown(obj, getRemainingTime(obj, timeUnit) + time, timeUnit);
+    }
+
+    /**
+     * Removes time from an object's cooldown
+     *
+     * @param obj The object to remove time from
+     * @param time The time to remove
+     */
+    public void removeTimeFromCooldown(Object obj, long time) {
+        removeTimeFromCooldown(obj, time, TimeUnit.MILLISECONDS);
+    }
+
+    /**
+     * Removes time from an object's cooldown
+     *
+     * @param obj The object to remove time from
+     * @param time The time to remove
+     * @param timeUnit The time unit of the time
+     */
+    public void removeTimeFromCooldown(Object obj, long time, TimeUnit timeUnit) {
+        setCooldown(obj, getRemainingTime(obj, timeUnit) - time, timeUnit);
+    }
 }
